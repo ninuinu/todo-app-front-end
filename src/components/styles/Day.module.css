@@ -1,0 +1,9 @@
+.day{
+    color: #767171;
+    flex-grow: 4;
+    text-align: right;
+    text-align: right;
+    align-self: flex-end;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Inter Tight', sans-serif;}

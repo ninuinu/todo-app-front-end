@@ -1,0 +1,6 @@
+.dateContainer{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Inter Tight', sans-serif;
+}
+
