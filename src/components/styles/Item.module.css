@@ -4,4 +4,11 @@
     font-weight: normal;
     font-size: 1.5rem;
     font-family: 'Inter Tight', sans-serif;
+    align-self: center;
+}
+
+.itemContainer{
+    display: flex;
+    flex-wrap: wrap;
+
 }

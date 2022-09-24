@@ -1,13 +1,15 @@
 import React from 'react'
 import {Card} from '@mui/material/'
 import styles from './styles/Item.module.css';
+import RemoveTodoButton from './RemoveTodoButton'
 
 export default function Item(todo:any){
 
     return(
-        <>
-        <h5 className={styles.item}>{todo.todo.description}</h5>
-        </>
+        <div className={styles.itemContainer}>
+            <div className={styles.item}>{todo.todo.description}</div>
+            <RemoveTodoButton></RemoveTodoButton>
+        </div>
     )
 
 
