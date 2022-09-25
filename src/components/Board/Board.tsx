@@ -39,7 +39,7 @@ export default function Board(){
         }).finally(()=>{
             setLoading(false)
         })
-    })
+    },[]);
 
 
     function handleChange(e:any) {
