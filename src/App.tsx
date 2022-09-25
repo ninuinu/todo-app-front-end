@@ -1,7 +1,7 @@
 import React from 'react';
 import './assets/fonts.css';
 import './App.css';
-import Board from "./components/Board";
+import Board from "./components/Board/Board";
 
 
 function App() {

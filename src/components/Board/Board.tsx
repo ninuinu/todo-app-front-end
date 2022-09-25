@@ -1,15 +1,15 @@
 import React, {useEffect, useMemo, useState} from 'react'
 import {Card} from '@mui/material/'
-import Item from './Item'
-import Date from './Date'
-import Day from './Day'
-import DateContainer from './DateContainer';
+import MonthYear from '../Date/MonthYear'
+import Day from '../Date/Day'
+import DateContainer from '../Date/DateContainer';
 import {Fab, TextField} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
-import styles from './styles/Board.module.css'
-import useFetch from "../hooks/useFetch";
-import AddTodoButton from "./AddTodoButton";
-import {api} from "../api";
+import styles from './Board.module.css'
+import useFetch from "../../hooks/useFetch";
+import AddTodoButton from "../Button/AddTodoButton";
+import {api} from "../../api";
+import Item from "../Todo/Item";
 
 export default function Board(){
 

@@ -1,9 +1,9 @@
 import {Fab} from "@mui/material";
-import styles from "./styles/RemoveTodoButton.module.css";
+import styles from "./RemoveTodoButton.module.css";
 import AddIcon from "@mui/icons-material/Add";
 import React from "react";
-import {api} from "../api";
-import crossIcon from '../assets/x-icon.svg'
+import crossIcon from '../../assets/x-icon.svg'
+import {api} from "../../api";
 
 export default function RemoveTodoButton(todo:any){
 

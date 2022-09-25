@@ -1,11 +1,11 @@
 import {Fab, TextField} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import React, {useState} from "react";
-import useFetch from "../hooks/useFetch";
-import styles from './styles/AddTodoButton.module.css';
+import useFetch from "../../hooks/useFetch";
+import styles from './AddTodoButton.module.css';
 import {Card} from "@mui/material/";
-import {api} from "../api";
-import upIcon from "../assets/up-icon.svg";
+import {api} from "../../api";
+import upIcon from "../../assets/up-icon.svg";
 
 export default function AddTodoButton(props:any){
 
