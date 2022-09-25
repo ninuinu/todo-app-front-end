@@ -4,7 +4,7 @@ import Item from './Item'
 import Date from './Date'
 import Day from './Day'
 import DateContainer from './DateContainer';
-import {Fab} from "@mui/material";
+import {Fab, TextField} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import styles from './styles/Board.module.css'
 import useFetch from "../hooks/useFetch";
@@ -20,6 +20,8 @@ export default function Board(){
     const [todos, setTodos] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [addTodoView, toggleAddTodoView] = useState(false);
+    const [text, setText] = useState("");
 
 
     useEffect( ()=>{
@@ -35,6 +37,20 @@ export default function Board(){
     })
 
 
+    function handleChange(e:any) {
+        setText(e.target.value);
+    }
+
+    async function handleSubmit(e:any){
+        e.preventDefault();
+        await api.request({url: '/todos', method:'post', params:{description: text}})
+        setText("");
+    }
+
+    function handleClick(){
+        toggleAddTodoView(!addTodoView);
+    }
+
     return(
         <>
             <Card className={styles.card}>
@@ -42,8 +58,14 @@ export default function Board(){
                 {todos && todos.map((todo:any) => <Item key={todo._id} todo={todo}>todo</Item>)}
                 {loading && "Loading"}
                 {error && "Error"}
+                {addTodoView ? <div className={styles.inputCard}>
+                        <form onSubmit={handleSubmit}>
+                            <TextField label='What needs to get done?' value={text} onChange={handleChange}></TextField>
+                        </form>
+                    </div>
+                    : <></>}
             </Card>
-            <AddTodoButton key={1} props={todos}></AddTodoButton>
+            <AddTodoButton onClick={handleClick} addTodoView={addTodoView}></AddTodoButton>
         </>
     )
 

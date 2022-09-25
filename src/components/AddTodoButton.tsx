@@ -5,35 +5,25 @@ import useFetch from "../hooks/useFetch";
 import styles from './styles/AddTodoButton.module.css';
 import {Card} from "@mui/material/";
 import {api} from "../api";
+import upIcon from "../assets/up-icon.svg";
 
 export default function AddTodoButton(props:any){
 
-    const [addTodoView, toggleAddTodoView] = useState(false);
-    const [text, setText] = useState("");
+    const addTodoView = props.addTodoView
 
-    function handleClick(){
-        toggleAddTodoView(!addTodoView);
+    function handleClick() {
+        props.onClick()
     }
 
-    function handleChange(e:any) {
-        setText(e.target.value);
-    }
-
-    async function handleSubmit(e:any){
-        e.preventDefault();
-        await api.request({url: '/todos', method:'post', params:{description: text}})
-        setText("");
-    }
 
 
     return(
-        <> {addTodoView ? <Card className={styles.inputCard}>
-                            <form onSubmit={handleSubmit}>
-                                <TextField label='What needs to get done?' value={text} onChange={handleChange}></TextField>
-                            </form>
-                        </Card>
-            : <></>}
-        <Fab className={styles.circularButton} aria-label="add" onClick={handleClick}>  <AddIcon className={styles.addIcon}/>
+        <>
+        <Fab className={styles.circularButton} aria-label="add" onClick={handleClick}>
+            {!addTodoView ?
+                <AddIcon className={styles.addIcon}/> :
+                <img src={upIcon} className={styles.upIcon}/>
+            }
         </Fab>
            </> )
 
