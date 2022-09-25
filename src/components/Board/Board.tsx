@@ -30,7 +30,7 @@ export default function Board(){
             setTodos(data.data)
             }
         ).catch((err)=>{
-            setError(false)
+            setError(true)
         }).finally(()=>{
             setLoading(false)
         })
