@@ -10,14 +10,19 @@ import useFetch from "../../hooks/useFetch";
 import AddTodoButton from "../Button/AddTodoButton";
 import {api} from "../../api";
 import Item from "../Todo/Item";
+import {TodoContext} from "../../context/TodoContext";
+import {useContext} from "react";
+import {TodoContextType} from "../../types/types.todo";
 
 export default function Board(){
 
-
+   // const {todos, saveTodo, deleteTodo } = React.useContext(TodoContext) as TodoContextType;
 
     //const {data,error,loading} = useFetch('/todos')
 
     const [todos, setTodos] = useState([]);
+    const [newTodo, setNewTodo] = useState("");
+
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [addTodoView, toggleAddTodoView] = useState(false);
@@ -44,12 +49,14 @@ export default function Board(){
     async function handleSubmit(e:any){
         e.preventDefault();
         await api.request({url: '/todos', method:'post', params:{description: text}})
+        setTodos((await api.get('/todos')).data)
         setText("");
     }
 
     function handleClick(){
         toggleAddTodoView(!addTodoView);
     }
+
 
     return(
         <>
@@ -59,10 +66,10 @@ export default function Board(){
                 {loading && "Loading"}
                 {error && "Error"}
                 {addTodoView ? <div className={styles.inputCard}>
-                        <form onSubmit={handleSubmit}>
-                            <TextField label='What needs to get done?' value={text} onChange={handleChange}></TextField>
-                        </form>
-                    </div>
+                                    <form onSubmit={handleSubmit}>
+                                        <TextField label='What needs to get done?' value={text} onChange={handleChange}></TextField>
+                                    </form>
+                                </div>
                     : <></>}
             </Card>
             <AddTodoButton onClick={handleClick} addTodoView={addTodoView}></AddTodoButton>

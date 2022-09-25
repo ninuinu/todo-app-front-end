@@ -9,6 +9,7 @@ export default function RemoveTodoButton(todo:any){
 
     async function handleClick(){
         await api.request({url: '/todos', method:'delete', params:{id: todo.props.todo._id}})
+
     }
 
     return(

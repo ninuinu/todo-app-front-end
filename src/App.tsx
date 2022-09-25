@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './assets/fonts.css';
 import './App.css';
 import Board from "./components/Board/Board";
-
+import * as Sentry from '@sentry/react';
 
 function App() {
-  return (
+
+    return (
+
     <div className="App">
       <header className="App-header">
           <Board></Board>
@@ -14,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default Sentry.withProfiler(App);
