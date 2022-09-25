@@ -2,3 +2,7 @@
     margin-left: auto;
     transform: scale(0.7);
 }
+
+.crossIcon{
+    transform: scale(0.2);
+}
