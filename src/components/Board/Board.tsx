@@ -1,33 +1,19 @@
 import React, {useEffect, useMemo, useState} from 'react'
 import {Card} from '@mui/material/'
-import MonthYear from '../Date/MonthYear'
-import Day from '../Date/Day'
 import DateContainer from '../Date/DateContainer';
-import {Fab, TextField} from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
+import {TextField} from "@mui/material";
 import styles from './Board.module.css'
-import useFetch from "../../hooks/useFetch";
 import AddTodoButton from "../Button/AddTodoButton";
 import {api} from "../../api";
 import Item from "../Todo/Item";
-import {TodoContext} from "../../context/TodoContext";
-import {useContext} from "react";
-import {TodoContextType} from "../../types/types.todo";
 
 export default function Board(){
 
-   // const {todos, saveTodo, deleteTodo } = React.useContext(TodoContext) as TodoContextType;
-
-    //const {data,error,loading} = useFetch('/todos')
-
     const [todos, setTodos] = useState([]);
-    const [newTodo, setNewTodo] = useState("");
-
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [addTodoView, toggleAddTodoView] = useState(false);
     const [text, setText] = useState("");
-
 
     useEffect( ()=>{
         api.get('/todos').then((data)=>{
@@ -39,8 +25,7 @@ export default function Board(){
         }).finally(()=>{
             setLoading(false)
         })
-    },[]);
-
+    },[setTodos]);
 
     function handleChange(e:any) {
         setText(e.target.value);
@@ -57,12 +42,17 @@ export default function Board(){
         toggleAddTodoView(!addTodoView);
     }
 
+    async function handleDeleteClick(id:any){
+        await api.request({url: '/todos', method:'delete', params:{id: id}})
+        setTodos((await api.get('/todos')).data)
+    }
+
 
     return(
         <>
             <Card className={styles.card}>
                 <DateContainer/>
-                {todos && todos.map((todo:any) => <Item key={todo._id} todo={todo}>todo</Item>)}
+                {todos && todos.map((todo:any) => <Item key={todo._id} props={[todo, handleDeleteClick]}></Item>)}
                 {loading && "Loading"}
                 {error && "Error"}
                 {addTodoView ? <div className={styles.inputCard}>
