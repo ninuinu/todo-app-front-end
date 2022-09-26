@@ -7,7 +7,6 @@
     max-width:300px;
     padding-top: 40px;
     padding-bottom: 40px;
-
     margin: auto;
 
 
@@ -16,6 +15,7 @@
 .cardOuterWrapper{
     width:100vw;
     margin-top:25vh;
+
 }
 
 .errorMessage{
@@ -51,10 +51,24 @@
 }
 
 @media screen and (min-width: 319px) and (max-width: 480px){}
-@media screen and (min-width: 481px) and (max-width: 768px){}
-@media screen and (min-width: 769px) and (max-width: 1024px){}
-@media screen and (min-width: 1025px) and (max-width: 1200px){}
-@media screen and (min-width: 1201px){}
+@media screen and (min-width: 481px) and (max-width: 768px){
+    .card{
+        min-width: 350px;
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px){
+    .card{
+        min-width: 350px;
+}}
+@media screen and (min-width: 1025px) and (max-width: 1200px){
+    .card{
+        min-width: 350px;
+}}
+@media screen and (min-width: 1201px){
+    .card{
+        min-width: 350px;
+    }
+}
 
 
 

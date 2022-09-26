@@ -5,19 +5,22 @@
     font-size: 1.3rem;
     font-family: 'Inter Tight', sans-serif;
     align-self: center;
+    max-width: 70%;
+
 }
 
 .itemContainer{
     display: flex;
     align-items: center;
-    max-height:40px;
-
+    flex-grow: 2;
 }
 
 @media screen and (max-width: 320px){
     .item{
         font-size:1rem;
+        max-width: 70%;
     }
+
 }
 
 @media screen and (min-width: 319px) and (max-width: 480px){}
