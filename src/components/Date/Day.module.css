@@ -7,3 +7,15 @@
     font-size: 1rem;
     font-weight: 600;
     font-family: 'Inter Tight', sans-serif;}
+
+@media screen and (max-width: 320px){
+    .day{
+        font-size:0.75rem;
+    }
+}
+
+@media screen and (min-width: 319px) and (max-width: 480px){}
+@media screen and (min-width: 481px) and (max-width: 768px){}
+@media screen and (min-width: 769px) and (max-width: 1024px){}
+@media screen and (min-width: 1025px) and (max-width: 1200px){}
+@media screen and (min-width: 1201px){}

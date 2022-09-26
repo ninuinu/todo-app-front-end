@@ -4,17 +4,63 @@
 
 .card{
     height:100%;
-    width:300px;
-    padding-left: 35px;
-    padding-right: 35px;
+    max-width:300px;
     padding-top: 40px;
     padding-bottom: 40px;
+
+    margin: auto;
+
+
+}
+
+.cardOuterWrapper{
+    width:100vw;
     margin-top:25vh;
 }
 
-.inputCard{
-    height:60px;
-    width: 300px;
-    padding-bottom: 15px;
-    padding-top: 35px;
+.errorMessage{
+    color: #767171;
+    font-size:2rem;
+    font-family: 'Inter Tight', sans-serif;
+    padding-bottom: 1rem;
 }
+
+.cardInnerWrapper{
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.itemsContainer{
+    padding-bottom: 20px;
+}
+
+@media screen and (min-width: 265px) and (max-width: 320px){
+
+    .card{
+        min-width: 265px;
+    }
+
+    .errorMessage{
+        font-size:1.4rem;
+    }
+
+    .cardInnerWrapper{
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+@media screen and (min-width: 319px) and (max-width: 480px){}
+@media screen and (min-width: 481px) and (max-width: 768px){}
+@media screen and (min-width: 769px) and (max-width: 1024px){}
+@media screen and (min-width: 1025px) and (max-width: 1200px){}
+@media screen and (min-width: 1201px){}
+
+
+
+/*
+320px—480px: Mobile devices
+481px—768px: iPads, Tablets
+769px—1024px: Small screens, laptops
+1025px—1200px: Desktops, large screens
+1201px and more Extra large screens, TV*/

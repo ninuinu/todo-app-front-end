@@ -1,6 +1,7 @@
 .date{
     color: #767171;
     font-size: 2.8rem;
+    margin-top: auto;
 }
 
 .month{
@@ -17,3 +18,21 @@
     text-align: left;
     margin-left: 20px;
 }
+
+@media screen and (max-width: 320px){
+    .date{
+        font-size:2rem;
+    }
+    .month{
+        font-size:1rem;
+    }
+    .year{
+        font-size:1rem;
+    }
+}
+
+@media screen and (min-width: 319px) and (max-width: 480px){}
+@media screen and (min-width: 481px) and (max-width: 768px){}
+@media screen and (min-width: 769px) and (max-width: 1024px){}
+@media screen and (min-width: 1025px) and (max-width: 1200px){}
+@media screen and (min-width: 1201px){}

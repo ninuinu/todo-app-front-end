@@ -6,6 +6,7 @@ import styles from './Board.module.css'
 import AddTodoButton from "../Button/AddTodoButton";
 import {api} from "../../api";
 import Item from "../Todo/Item";
+import AddTodoField from "../AddTodoField/AddTodoField";
 
 export default function Board(){
 
@@ -50,19 +51,20 @@ export default function Board(){
 
     return(
         <>
+            <div className={styles.cardOuterWrapper}>
             <Card className={styles.card}>
+                <div className={styles.cardInnerWrapper}>
                 <DateContainer/>
-                {todos && todos.map((todo:any) => <Item key={todo._id} props={[todo, handleDeleteClick]}></Item>)}
+                    <div className={styles.itemsContainer}>
+                {todos && todos.map((todo:any) => <Item key={todo._id} props={[todo, handleDeleteClick]}></Item>)}</div>
                 {loading && "Loading"}
-                {error && "Error"}
-                {addTodoView ? <div className={styles.inputCard}>
-                                    <form onSubmit={handleSubmit}>
-                                        <TextField label='What needs to get done?' value={text} onChange={handleChange}></TextField>
-                                    </form>
-                                </div>
+                {error && <div className={styles.errorMessage}>Woops! Data could not be loaded</div>}
+                {addTodoView ? <AddTodoField props={[text, handleChange, handleSubmit]}></AddTodoField>
                     : <></>}
+                </div>
             </Card>
             <AddTodoButton onClick={handleClick} addTodoView={addTodoView}></AddTodoButton>
+            </div>
         </>
     )
 
