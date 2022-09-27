@@ -2,6 +2,8 @@
 
 This is the client side code for a Todo App web application. The front end has been built using React and Typescript and has been deployed using Heroku. To access the app, click [here](https://intense-lowlands-11377.herokuapp.com/).
 
+![todo-app](https://user-images.githubusercontent.com/28160364/192611564-8045faa4-9f69-4f65-aae7-c4c7078a4bac.PNG)
+
 ## Available Scripts
 
 In the project directory, you can run:
