@@ -1,14 +1,13 @@
 import React from 'react'
 import styles from './DateContainer.module.css'
-import MonthYear from "./MonthYear";
-import Day from "./Day";
+import {Day, MonthYear} from "../../index";
 
 export default function DateContainer(){
 
     const today:any = new Date();
     let year = today.getFullYear();
     let month = today.toLocaleDateString('en-US', {month: 'short'})
-    let date =   today.getDate();
+    let date = today.getDate();
     let day = today.toLocaleDateString('en-US', {weekday: 'long'})
 
 

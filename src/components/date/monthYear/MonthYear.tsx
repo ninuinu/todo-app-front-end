@@ -14,6 +14,4 @@ export default function MonthYear(props:any){
             </div>
         </>
     )
-
-
 }

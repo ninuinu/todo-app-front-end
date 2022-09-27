@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from './Item.module.css';
-import RemoveTodoButton from "../Button/RemoveTodoButton";
+import {RemoveTodoButton} from "../index"
+import {ITodo} from "../../types/types.todo";
 
 export default function Item(props:any){
 
-    const todo = props.props[0]
-    const handleDeleteClick = props.props[1]
+    const todo:ITodo = props.props[0]
+    const handleDeleteClick:Function = props.props[1]
 
     return(
         <div className={styles.itemContainer}>
@@ -13,6 +14,4 @@ export default function Item(props:any){
             <RemoveTodoButton key={todo._id} props={todo} handleClick={handleDeleteClick}></RemoveTodoButton>
         </div>
     )
-
-
 }

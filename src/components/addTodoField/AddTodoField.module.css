@@ -1,23 +1,23 @@
-.button{
-    margin-left: auto;
-    transform: scale(0.6);
-    margin-right: -10px;
-    box-shadow: none;
+.inputCard{
+    height:60px;
+    width: 300px;
+    padding-bottom: 15px;
+    padding-top: 35px;
+}
+
+.textField{
 
 }
 
-.crossIcon{
-    transform: scale(0.25);
-}
 
 @media screen and (max-width: 320px){
-    .button{
-        transform: scale(0.55);
+    .textField{
+
     }
 }
-
+/*
 @media screen and (min-width: 319px) and (max-width: 480px){}
 @media screen and (min-width: 481px) and (max-width: 768px){}
 @media screen and (min-width: 769px) and (max-width: 1024px){}
 @media screen and (min-width: 1025px) and (max-width: 1200px){}
-@media screen and (min-width: 1201px){}
+@media screen and (min-width: 1201px){}*/
